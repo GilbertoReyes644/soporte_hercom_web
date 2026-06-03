@@ -25,6 +25,7 @@ body {
     color: var(--dark-color);
     line-height: 1.6;
     background-color: var(--white);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -81,7 +82,6 @@ header .container {
     align-items: center;
 }
 
-/* Ajustes fluidos para renderizar perfectamente el logo de Hercom */
 .logo-img {
     height: 50px; 
     width: auto;
@@ -96,6 +96,7 @@ header .container {
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 nav ul li {
@@ -131,7 +132,7 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-/* --- Hero Section de Alto Impacto --- */
+/* --- Hero Section --- */
 .hero {
     background: linear-gradient(135deg, rgba(11, 60, 93, 0.9), rgba(29, 39, 49, 0.95)), 
                 url('https://images.unsplash.com/photo-1597872200319-382d4cf4f3c4?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
@@ -265,7 +266,7 @@ nav ul li a:hover::after {
     transform: translateX(5px);
 }
 
-/* --- MODALES OPTIMIZADOS (CSS PURO) --- */
+/* --- Modales --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -447,7 +448,7 @@ nav ul li a:hover::after {
     font-size: 0.95rem;
 }
 
-/* --- Nueva Sección FAQ y CTA --- */
+/* --- Sección FAQ --- */
 .faq-section {
     background-color: var(--white);
 }
@@ -456,7 +457,6 @@ nav ul li a:hover::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
-    margin-bottom: 50px;
 }
 
 .faq-box {
@@ -484,47 +484,6 @@ nav ul li a:hover::after {
     color: #475569;
     font-size: 0.95rem;
     line-height: 1.5;
-}
-
-/* Contenedor de Llamado a la Acción (WhatsApp) */
-.cta-whatsapp {
-    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
-    color: var(--white);
-    padding: 40px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(11, 60, 93, 0.15);
-}
-
-.cta-whatsapp h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: var(--accent-color);
-}
-
-.cta-whatsapp p {
-    color: #cbd5e1;
-    margin-bottom: 25px;
-}
-
-.btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #25d366; 
-    color: var(--white);
-    padding: 14px 30px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    transition: all 0.3s ease;
-}
-
-.btn-whatsapp:hover {
-    background-color: #128c7e;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(18, 140, 126, 0.4);
 }
 
 /* --- Footer --- */
@@ -559,9 +518,9 @@ footer p {
     .timeline {
         padding-left: 30px;
     }
-}/* --- BOTÓN DE MODO OSCURO --- */
+}
 
-
+/* --- MODO OSCURO (DARK MODE) --- */
 .btn-theme {
     background: none;
     border: none;
@@ -576,17 +535,15 @@ footer p {
     transform: rotate(15deg) scale(1.1);
 }
 
-/* --- VARIABLES DEL MODO OSCURO --- */
 body.dark-mode {
-    --primary-color: #0f172a;      /* Fondo principal súper oscuro */
-    --secondary-color: #38bdf8;    /* Azul claro brillante/neón */
-    --accent-color: #fde047;       /* Amarillo brillante */
-    --dark-color: #f8fafc;         /* Invertimos el texto oscuro a blanco */
-    --light-bg: #1e293b;           /* Fondo secundario oscuro */
-    --white: #0f172a;              /* Las tarjetas ahora son oscuras */
+    --primary-color: #0f172a;      
+    --secondary-color: #38bdf8;    
+    --accent-color: #fde047;       
+    --dark-color: #f8fafc;         
+    --light-bg: #1e293b;           
+    --white: #0f172a;              
 }
 
-/* Ajustes visuales extra para el modo oscuro */
 body.dark-mode .card,
 body.dark-mode .timeline-content,
 body.dark-mode .modal-box,
@@ -596,7 +553,7 @@ body.dark-mode .faq-box {
 }
 
 body.dark-mode p {
-    color: #cbd5e1; /* Texto de párrafos más legible en fondo oscuro */
+    color: #cbd5e1; 
 }
 
 body.dark-mode .modal-box p, 
