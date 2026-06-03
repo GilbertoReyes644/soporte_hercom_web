@@ -1,0 +1,605 @@
+/* --- Variables de Diseño Moderna --- */
+:root {
+    --primary-color: #0b3c5d;      
+    --secondary-color: #328cc1;    
+    --accent-color: #d9b310;       
+    --dark-color: #1d2731;         
+    --light-bg: #f8fafc;           
+    --white: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* --- Estilos Generales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--dark-color);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+/* --- Botones --- */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(50, 140, 193, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(217, 179, 16, 0.4);
+}
+
+/* --- Encabezado y Estilos del Logo --- */
+header {
+    background-color: rgba(11, 60, 93, 0.96);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+header .container {
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustes fluidos para renderizar perfectamente el logo de Hercom */
+.logo-img {
+    height: 50px; 
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section de Alto Impacto --- */
+.hero {
+    background: linear-gradient(135deg, rgba(11, 60, 93, 0.9), rgba(29, 39, 49, 0.95)), 
+                url('https://images.unsplash.com/photo-1597872200319-382d4cf4f3c4?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto 35px auto;
+    color: #cbd5e1;
+}
+
+/* --- Sección Servicios --- */
+.servicios-section {
+    background-color: var(--light-bg);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.section-title p {
+    color: #64748b;
+    font-size: 1.05rem;
+}
+
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: transparent;
+}
+
+.card:hover::before {
+    background-color: var(--accent-color);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.btn-card {
+    display: inline-block;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.btn-card i {
+    font-size: 0.8rem;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.btn-card:hover {
+    color: var(--primary-color);
+}
+
+.btn-card:hover i {
+    transform: translateX(5px);
+}
+
+/* --- MODALES OPTIMIZADOS (CSS PURO) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 2000;
+}
+
+.modal-overlay:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.modal-overlay:target .modal-box {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #ef4444;
+}
+
+.modal-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.modal-box hr {
+    border: 0;
+    height: 1px;
+    background-color: #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.modal-box ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.modal-box ul li {
+    margin-bottom: 10px;
+    color: #475569;
+}
+
+/* --- Sección Galería --- */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.galeria-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 250px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.galeria-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(11, 60, 93, 0.95) 20%, rgba(11, 60, 93, 0.2));
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+.galeria-item:hover .galeria-overlay {
+    opacity: 1;
+}
+
+.galeria-overlay h4 {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+/* --- Sección Línea del Tiempo --- */
+.proceso-section {
+    background-color: var(--light-bg);
+}
+
+.timeline {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-left: 40px;
+    border-left: 3px dashed #cbd5e1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -49px;
+    top: 8px;
+    background-color: var(--accent-color);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    box-shadow: 0 0 0 3px var(--secondary-color);
+}
+
+.timeline-content {
+    background-color: var(--white);
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+    border: 1px solid #e2e8f0;
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* --- Nueva Sección FAQ y CTA --- */
+.faq-section {
+    background-color: var(--white);
+}
+
+.grid-faq {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.faq-box {
+    background-color: var(--light-bg);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.faq-box h4 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.faq-box h4 i {
+    color: var(--secondary-color);
+    margin-top: 3px;
+}
+
+.faq-box p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Contenedor de Llamado a la Acción (WhatsApp) */
+.cta-whatsapp {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(11, 60, 93, 0.15);
+}
+
+.cta-whatsapp h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.cta-whatsapp p {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25d366; 
+    color: var(--white);
+    padding: 14px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128c7e;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(18, 140, 126, 0.4);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-color);
+    color: #94a3b8;
+    text-align: center;
+    border-top: 4px solid var(--primary-color);
+}
+
+footer .container {
+    padding: 40px 0;
+}
+
+footer p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    nav ul li {
+        margin: 0 12px;
+    }
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+    .timeline {
+        padding-left: 30px;
+    }
+}/* --- BOTÓN DE MODO OSCURO --- */
+
+
+.btn-theme {
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-theme:hover {
+    color: var(--accent-color);
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* --- VARIABLES DEL MODO OSCURO --- */
+body.dark-mode {
+    --primary-color: #0f172a;      /* Fondo principal súper oscuro */
+    --secondary-color: #38bdf8;    /* Azul claro brillante/neón */
+    --accent-color: #fde047;       /* Amarillo brillante */
+    --dark-color: #f8fafc;         /* Invertimos el texto oscuro a blanco */
+    --light-bg: #1e293b;           /* Fondo secundario oscuro */
+    --white: #0f172a;              /* Las tarjetas ahora son oscuras */
+}
+
+/* Ajustes visuales extra para el modo oscuro */
+body.dark-mode .card,
+body.dark-mode .timeline-content,
+body.dark-mode .modal-box,
+body.dark-mode .faq-box {
+    border: 1px solid #334155;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+body.dark-mode p {
+    color: #cbd5e1; /* Texto de párrafos más legible en fondo oscuro */
+}
+
+body.dark-mode .modal-box p, 
+body.dark-mode .modal-box ul li {
+    color: #cbd5e1;
+}
